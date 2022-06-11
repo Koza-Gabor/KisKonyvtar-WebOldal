@@ -1,0 +1,48 @@
+﻿@model KisKonyvtarNyilvantartas01.Models.Konyvek
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Létrehozás</h1>
+
+<h4>Könyvek</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cim" class="control-label"></label>
+                <input asp-for="Cim" class="form-control" />
+                <span asp-validation-for="Cim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Szerzo" class="control-label"></label>
+                <input asp-for="Szerzo" class="form-control" />
+                <span asp-validation-for="Szerzo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mufaj" class="control-label"></label>
+                <input asp-for="Mufaj" class="form-control" />
+                <span asp-validation-for="Mufaj" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ar" class="control-label"></label>
+                <input asp-for="Ar" class="form-control" />
+                <span asp-validation-for="Ar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Létrehozás" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Vissza a listához</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

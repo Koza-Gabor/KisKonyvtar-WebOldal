@@ -1,0 +1,70 @@
+﻿@model KisKonyvtarNyilvantartas01.Models.KonyvKeres
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Könyvnyilvántartás</h1>
+
+<p>
+    <a asp-action="Create">Új Létrhozása</a>
+</p>
+<form asp-controller="Konyvtar" asp-action="Index" method="get">
+    Szerző:
+    <input asp-for="Szerzo">
+
+    Cím:
+    <select asp-for="Cim" asp-items="Model.CimLista">
+        <option value="">Összes</option>
+    </select>
+    
+    Műfaj:
+    <select asp-for="Mufaj" asp-items="Model.MufajLista">
+        <option value="">Összes</option>
+    </select>
+
+    <input type="submit" value="Keresés">
+</form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.KonyvLista[0].Cim)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KonyvLista[0].Szerzo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KonyvLista[0].Mufaj)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KonyvLista[0].Ar)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.KonyvLista)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cim)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Szerzo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mufaj)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ar)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Szerkesztés</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Részletek</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Törlés</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

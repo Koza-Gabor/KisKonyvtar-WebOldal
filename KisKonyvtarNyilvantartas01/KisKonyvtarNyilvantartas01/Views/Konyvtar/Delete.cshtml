@@ -1,0 +1,45 @@
+﻿@model KisKonyvtarNyilvantartas01.Models.Konyvek
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Törlés</h1>
+
+<h3>Biztosan törli ezt?</h3>
+<div>
+    <h4>Könyvek</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cim)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Szerzo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Szerzo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mufaj)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mufaj)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ar)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Törlés" class="btn btn-danger" /> |
+        <a asp-action="Index">Vissza a listához</a>
+    </form>
+</div>
